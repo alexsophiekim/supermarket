@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>shopping</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col ">
+          <h1 class="display-3">Supermarket</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col category mt-3 d-flex justify-content-around">
+          <button class="btn btn-secondary text-uppercase" id="fruit">fruit</button>
+          <button class="btn btn-secondary text-uppercase" id="vegetable">vegetable</button>
+          <button class="btn btn-secondary text-uppercase" id="dairy">dairy</button>
+          <button class="btn btn-secondary text-uppercase" id="bakery">bakery</button>
+          <button class="btn btn-secondary text-uppercase" id="butchery">butchery</button>
+        </div>
+      </div>
+
+      <div id="pageContainer">
+        <div id="itemList" class="row listArea my-3 mx-auto text-dark">  </div>
+      </div>
+
+    </div>
+
+
+    <div id="popup" class="overlay">
+      <div id="content">
+        <div id="close">
+          <i id="close" class="fas fa-times fa-2x"></i>
+        </div>
+      <div class="row ">
+        <div class="col col-4 ">
+          <img id="itemImage" src="" alt="" class="img-fluid">
+        </div>
+
+          <div class="col-8">
+            <h2 id="itemName" class="display-4"></h2>
+            <p id="itemUnit"></p>
+            <p id="itemSort"></p>
+            <p><span id="itemPrice">$ </span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
