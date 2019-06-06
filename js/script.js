@@ -52,8 +52,7 @@ function fruit(){
     itemCard +='</div>';
 
   document.getElementById('itemList').innerHTML += itemCard;
-
-
+  
   }
 
   var itemThumb = document.getElementsByClassName('itemThumb2');
