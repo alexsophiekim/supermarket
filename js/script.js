@@ -1,6 +1,10 @@
 var itemList = document.getElementById('itemList');
 
 fruit();
+
+
+
+
 function fruit(){
   var items = [
       {
@@ -38,12 +42,10 @@ function fruit(){
   ];
 
   itemList.innerHTML ='';
-
   for (var i = 0; i < items.length; i++) {
-
+    console.log(items[i].photo);
     var itemCard ='<div class="col-12 col-sm-6 col-md-3 mb-3 text-center">';
-
-    itemCard += '<div class="card itemThumb itemThumb2 my-2" style="width: 13rem;" data-id="'+items[i].id+'">';
+      itemCard += '<div class="card itemThumb itemThumb2 my-2" style="width: 13rem;" data-id="'+items[i].id+'">';
       itemCard += '<img src ="img/'+items[i].photo+'" class="img-thumbnail" alt="">';
         itemCard += '<div class="card-body">';
           itemCard += '<h5 class="card-title">$ '+items[i].price+'</h5>';
@@ -51,9 +53,7 @@ function fruit(){
       itemCard +='</div>';
     itemCard +='</div>';
 
-  document.getElementById('itemList').innerHTML += itemCard;
-  
-  }
+  itemList.innerHTML += itemCard;
 
   var itemThumb = document.getElementsByClassName('itemThumb2');
   for (var i = 0; i < itemThumb.length; i++) {
@@ -72,87 +72,92 @@ function detail(itemNumber){
     }
   }
 
-  document.getElementById('itemImage').src = 'img/'+items[i].photo;
-  document.getElementById('itemName').innerText = items[i].name;
-  document.getElementById('itemUnit').innerText = 'Unit: '+items[i].unit;
-  document.getElementById('itemSort').innerText = 'category: '+items[i].sort;
-  document.getElementById('itemPrice').innerText = 'price: $'+items[i].price;
+    document.getElementById('popup').style.display = 'flex';
+    document.body.style.overflow ='hidden';
 
-  document.getElementById('popup').style.display = 'flex';
-  document.body.style.overflow ='hidden';
+    document.getElementById('itemImage').src = 'img/'+items[i].photo;
+    document.getElementById('itemName').innerText = items[i].name;
+    document.getElementById('itemUnit').innerText = 'Unit: '+items[i].unit;
+    document.getElementById('itemSort').innerText = 'category: '+items[i].sort;
+    document.getElementById('itemPrice').innerText = 'price: $'+items[i].price;
 
 
-}
-
-  document.getElementById('close').onclick = function(){
+    document.getElementById('close').onclick = function(){
     document.getElementById('popup').style.display='none';
     document.body.style.overflow = 'scroll';
-  }
 
+};
+  }
+ }
 
   document.getElementById('fruit').addEventListener('click',function(){
     console.log('fruit');
     fruit();
-  });
-}
+});
 
 
-vegetable();
-function vegetable(){
-  var items = [
-    {
-        id:5,
-        sort: 'vegetable',
-        unit: 'ea',
-        name: 'broccoli',
-        photo: 'broccoli.png',
-        price: 2.00
-      },
-      {
-        id:6,
-        sort: 'vegetable',
-        unit: 'kg',
-        name: 'tomatoes',
-        photo: 'tomatoes.png',
-        price: 4.99
-      },
-      {
-        id:7,
-        sort: 'vegetable',
-        unit: 'kg',
-        name: 'carrots',
-        photo: 'carrots.png',
-        price: 1.99
-      },
-      {
-        id:8,
-        sort: 'vegetable',
-        unit: 'kg',
-        name: 'mushrooms',
-        photo: 'mushrooms.png',
-        price: 14.99
-      },
-  ];
 
-  itemList.innerHTML ='';
-
-  for (var i = 0; i < items.length; i++) {
-
-    var itemCard ='<div class="col-12 col-sm-6 col-md-3 mb-3 text-center">';
-
-    itemCard += '<div class="card itemThumb itemThumb2 my-2" style="width: 13rem;" data-id="'+items[i].id+'">';
-      itemCard += '<img src ="img/'+items[i].photo+'" class="img-thumbnail" alt="">';
-        itemCard += '<div class="card-body">';
-          itemCard += '<h5 class="card-title">$ '+items[i].price+'</h5>';
-        itemCard +='</div>';
-      itemCard +='</div>';
-    itemCard +='</div>';
-  document.getElementById('itemList').innerHTML += itemCard;
-
-  }
-
-
-}
+//
+//
+//
+//
+//
+// vegetable();
+// function vegetable(){
+//   var items = [
+//     {
+//         id:5,
+//         sort: 'vegetable',
+//         unit: 'ea',
+//         name: 'broccoli',
+//         photo: 'broccoli.png',
+//         price: 2.00
+//       },
+//       {
+//         id:6,
+//         sort: 'vegetable',
+//         unit: 'kg',
+//         name: 'tomatoes',
+//         photo: 'tomatoes.png',
+//         price: 4.99
+//       },
+//       {
+//         id:7,
+//         sort: 'vegetable',
+//         unit: 'kg',
+//         name: 'carrots',
+//         photo: 'carrots.png',
+//         price: 1.99
+//       },
+//       {
+//         id:8,
+//         sort: 'vegetable',
+//         unit: 'kg',
+//         name: 'mushrooms',
+//         photo: 'mushrooms.png',
+//         price: 14.99
+//       },
+//   ];
+//
+//   itemList.innerHTML ='';
+//
+//   for (var i = 0; i < items.length; i++) {
+//
+//     var itemCard ='<div class="col-12 col-sm-6 col-md-3 mb-3 text-center">';
+//
+//     itemCard += '<div class="card itemThumb itemThumb2 my-2" style="width: 13rem;" data-id="'+items[i].id+'">';
+//       itemCard += '<img src ="img/'+items[i].photo+'" class="img-thumbnail" alt="">';
+//         itemCard += '<div class="card-body">';
+//           itemCard += '<h5 class="card-title">$ '+items[i].price+'</h5>';
+//         itemCard +='</div>';
+//       itemCard +='</div>';
+//     itemCard +='</div>';
+//   document.getElementById('itemList').innerHTML += itemCard;
+//
+//   }
+//
+//
+// }
 
 
 //
@@ -340,5 +345,5 @@ function vegetable(){
 //   itemList.innerHTML += '<div class ="image-div"><h3>$ '+items[i].price+'</h3> <img class="image" src="img/'+items[i].photo+'"> </div>';
 // }
 
-
-itemList.innerHTML ='';
+//
+// itemList.innerHTML ='';
