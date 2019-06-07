@@ -194,9 +194,10 @@ var items = [
     price: 5.99
   },
 ];
-
 var itemList = document.getElementById('itemList');
+
 itemCard(items);
+
 function itemCard(inputArray){
   for (var i = 0; i < inputArray.length; i++) {
 
@@ -204,13 +205,47 @@ function itemCard(inputArray){
         itemCard += '<div class="card itemThumb itemThumb2 mt-3" style="width: 15rem;" data-id="'+inputArray[i].id+'">';
         itemCard += '<img src ="img/'+inputArray[i].photo+'"class="img-thumbnail" alt="">';
           itemCard += '<div class="card-body">';
-            itemCard += '<h5 class="card-title">$ '+inputArray[i].price+'</h5>';
+            itemCard += '<h5 class="card-title">$ '+inputArray[i].price+'/'+inputArray[i].unit+'</h5>';
           itemCard +='</div>';
         itemCard +='</div>';
       itemCard +='</div>';
 
       itemList.innerHTML += itemCard;
   };
+}
+function thumbs(){
+
+  function detail(itemNumber){
+    var item;
+    for (var i = 0; i < items.length; i++) {
+      if(items[i].id === itemNumber){
+        item = items[i];
+        break;
+      }
+    }
+    document.getElementById('itemImage').src = 'img/'+items[i].photo;
+    document.getElementById('itemName').innerText = items[i].name;
+    document.getElementById('itemUnit').innerText = 'Unit: '+items[i].unit;
+    document.getElementById('itemSort').innerText = 'category: '+items[i].sort;
+    document.getElementById('itemPrice').innerText = 'price: $'+items[i].price;
+    document.getElementById('add').innerHTML = '<button type="button" class="btn btn-lg btn-block btn-primary">ADD</button>';
+
+
+    document.getElementById('popup').style.display = 'flex';
+    document.body.style.overflow ='hidden';
+  };
+
+  var itemThumb = document.getElementsByClassName('itemThumb2');
+  for (var i = 0; i < itemThumb.length; i++) {
+    itemThumb[i].onclick = function(){
+      var id = parseInt(this.dataset.id);
+      detail(id);
+    };
+  }
+    document.getElementById('close').onclick = function(){
+    document.getElementById('popup').style.display='none';
+    document.body.style.overflow = 'scroll';
+  }
 }
 
 function detail(itemNumber){
@@ -255,10 +290,11 @@ $('#fruit').click(function(){
       }
     }
     itemCard(fruitArray);
+    thumbs();
 });
 
 $('#vegetable').click(function(){
-  ('#itemList').html('');
+    $('#itemList').html('');
   var vegeArray = [];
     for (var i = 0; i < items.length; i++) {
       if (items[i].sort == 'vegetable') {
@@ -267,9 +303,10 @@ $('#vegetable').click(function(){
       }
     }
     itemCard(vegeArray);
+    thumbs();
 });
 $('#dairy').click(function(){
-  ('#itemList').html('');
+  $('#itemList').html('');
   var dairyArray = [];
     for (var i = 0; i < items.length; i++) {
       if (items[i].sort == 'dairy') {
@@ -278,9 +315,10 @@ $('#dairy').click(function(){
       }
     }
     itemCard(dairyArray);
+    thumbs();
 });
 $('#bakery').click(function(){
-  ('#itemList').html('');
+  $('#itemList').html('');
   var bakeryArray = [];
     for (var i = 0; i < items.length; i++) {
       if (items[i].sort == 'bakery') {
@@ -289,9 +327,10 @@ $('#bakery').click(function(){
       }
     }
     itemCard(bakeryArray);
+    thumbs();
 });
 $('#butchery').click(function(){
-  ('#itemList').html('');
+  $('#itemList').html('');
   var butcheryArray = [];
     for (var i = 0; i < items.length; i++) {
       if (items[i].sort == 'butchery') {
@@ -300,4 +339,5 @@ $('#butchery').click(function(){
       }
     }
     itemCard(butcheryArray);
+    thumbs();
 });
